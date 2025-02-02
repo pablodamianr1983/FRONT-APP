@@ -1,0 +1,107 @@
+/* Fondo negro en toda la pantalla */
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  background: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  overflow: hidden;
+}
+
+/* Contenedor principal */
+.dashboard-wrapper {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: black;
+}
+
+/* Contenedor del dashboard */
+.dashboard-container {
+  width: 90%;
+  max-width: 900px;
+  background: #141423;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.3);
+  padding: 2rem;
+  text-align: center;
+}
+
+/* Título */
+.dashboard-container h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: white;
+}
+
+/* Botones de acción */
+.dashboard-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+.register-link, .logout-button {
+  padding: 0.75rem 1.5rem;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  font-weight: bold;
+}
+
+.register-link {
+  background: #4a90e2;
+}
+
+.register-link:hover {
+  background: #357ab8;
+}
+
+.logout-button {
+  background: #e74c3c;
+  border: none;
+  cursor: pointer;
+}
+
+.logout-button:hover {
+  background: #c0392b;
+}
+
+/* Tabla de pacientes */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+thead {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+th, td {
+  padding: 0.75rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+}
+
+tr:nth-child(even) {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* Enlaces de acción */
+.action-links a {
+  color: #4a90e2;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.action-links a:hover {
+  text-decoration: underline;
+}
