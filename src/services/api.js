@@ -19,7 +19,10 @@ api.interceptors.request.use(
   (config) => {
     const token = localStorage.getItem("token");
     if (token) {
-      config.headers["Authorization"] = `Bearer ${token}`; // ⬅️ Corrección: Usa "Authorization" estándar
+      config.headers["Authorization"] = `Bearer ${token}`; // ✅ Asegurarse de usar la cabecera correcta
+      console.log("🛠 Enviando token en la solicitud:", token);
+    } else {
+      console.warn("⚠️ No hay token en localStorage, solicitud sin autenticación");
     }
     return config;
   },
@@ -29,3 +32,4 @@ api.interceptors.request.use(
 );
 
 export default api;
+
