@@ -54,92 +54,29 @@ const PatientForm = () => {
   };
 
   return (
-    <div className="patient-form">
-      <h2>{id ? 'Editar Paciente' : 'Crear Paciente'}</h2>
-      <form onSubmit={handleSubmit}>
-        <div className="form-group">
-          <label>Nombre:</label>
-          <input
-            type="text"
-            name="nombre"
-            value={patient.nombre}
-            onChange={handleChange}
-            required
-          />
+    <div className="patient-wrapper">
+      <div className="patient-container">
+        <div className="patient-left">
+          <h2>{id ? 'Editar Paciente' : 'Crear Paciente'}</h2>
+          <form onSubmit={handleSubmit}>
+            <input type="text" name="nombre" placeholder="Nombre" value={patient.nombre} onChange={handleChange} required />
+            <input type="text" name="apellido" placeholder="Apellido" value={patient.apellido} onChange={handleChange} required />
+            <input type="date" name="fecha_nacimiento" value={patient.fecha_nacimiento} onChange={handleChange} />
+            <input type="text" name="tipo_sangre" placeholder="Tipo de Sangre" value={patient.tipo_sangre} onChange={handleChange} />
+            <textarea name="diagnosticos" placeholder="Diagnósticos" value={patient.diagnosticos} onChange={handleChange}></textarea>
+            <textarea name="formas_tratamiento" placeholder="Formas de Tratamiento" value={patient.formas_tratamiento} onChange={handleChange}></textarea>
+            <input type="text" name="telefono_contacto" placeholder="Teléfono de Contacto" value={patient.telefono_contacto} onChange={handleChange} />
+            <input type="text" name="telefono_emergencia" placeholder="Teléfono de Emergencia" value={patient.telefono_emergencia} onChange={handleChange} />
+            <input type="text" name="foto_perfil" placeholder="URL de Foto de Perfil" value={patient.foto_perfil} onChange={handleChange} />
+            <button type="submit">{id ? 'Actualizar' : 'Crear'}</button>
+          </form>
         </div>
-        <div className="form-group">
-          <label>Apellido:</label>
-          <input
-            type="text"
-            name="apellido"
-            value={patient.apellido}
-            onChange={handleChange}
-            required
-          />
+        <div className="patient-right">
+          <div className="patient-bg">
+            <h1 className="app-title">DiagnosTO</h1>
+          </div>
         </div>
-        <div className="form-group">
-          <label>Fecha de Nacimiento:</label>
-          <input
-            type="date"
-            name="fecha_nacimiento"
-            value={patient.fecha_nacimiento}
-            onChange={handleChange}
-          />
-        </div>
-        <div className="form-group">
-          <label>Tipo de Sangre:</label>
-          <input
-            type="text"
-            name="tipo_sangre"
-            value={patient.tipo_sangre}
-            onChange={handleChange}
-          />
-        </div>
-        <div className="form-group">
-          <label>Diagnósticos:</label>
-          <textarea
-            name="diagnosticos"
-            value={patient.diagnosticos}
-            onChange={handleChange}
-          ></textarea>
-        </div>
-        <div className="form-group">
-          <label>Formas de Tratamiento:</label>
-          <textarea
-            name="formas_tratamiento"
-            value={patient.formas_tratamiento}
-            onChange={handleChange}
-          ></textarea>
-        </div>
-        <div className="form-group">
-          <label>Teléfono de Contacto:</label>
-          <input
-            type="text"
-            name="telefono_contacto"
-            value={patient.telefono_contacto}
-            onChange={handleChange}
-          />
-        </div>
-        <div className="form-group">
-          <label>Teléfono de Emergencia:</label>
-          <input
-            type="text"
-            name="telefono_emergencia"
-            value={patient.telefono_emergencia}
-            onChange={handleChange}
-          />
-        </div>
-        <div className="form-group">
-          <label>Foto de Perfil (URL):</label>
-          <input
-            type="text"
-            name="foto_perfil"
-            value={patient.foto_perfil}
-            onChange={handleChange}
-          />
-        </div>
-        <button type="submit">{id ? 'Actualizar' : 'Crear'}</button>
-      </form>
+      </div>
       <button className="back-button" onClick={() => navigate('/dashboard')}>
         Volver
       </button>
