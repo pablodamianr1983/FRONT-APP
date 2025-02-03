@@ -1,89 +1,119 @@
-/* PatientProfile.css */
-
-/* Asegurarse de que html y body ocupen toda la altura */
+/* Fondo negro en toda la pantalla */
 html, body {
-    height: 100%;
-    margin: 0;
-  }
-  
-  /* Centrar el contenido en la página */
-  body {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: #f4f4f4; /* Fondo suave */
-    font-family: 'Roboto', sans-serif;
-  }
-  
-  /* Contenedor principal */
-  .patient-profile {
-    width: 100%;
-    max-width: 600px;
-    background: #fff;
-    border-radius: 8px;
-    padding: 2rem;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    color: #333;
-    text-align: center;
-  }
-  
-  /* Título principal */
-  .patient-profile h2 {
-    margin-bottom: 1.5rem;
-    font-size: 2rem;
-    color: #2c3e50;
-  }
-  
-  /* Estilo para la imagen del paciente */
-  .patient-profile img {
-    display: block;
-    margin: 0 auto 1rem auto;
-    width: 150px;
-    height: 150px;
-    object-fit: cover;
-    border-radius: 50%;
-    border: 3px solid #4a90e2;
-  }
-  
-  /* Estilo para los párrafos */
-  .patient-profile p {
-    font-size: 1rem;
-    line-height: 1.6;
-    margin: 0.5rem 0;
-    color: #555;
-  }
-  
-  /* Resaltar etiquetas fuertes */
-  .patient-profile p strong {
-    color: #2c3e50;
-  }
-  
-  /* Contenedor para el QR Code */
-  .patient-profile .qr-code {
-    margin-top: 2rem;
-  }
-  
-  /* Título del QR Code */
-  .patient-profile .qr-code h3 {
-    margin-bottom: 1rem;
-    font-size: 1.5rem;
-    color: #2c3e50;
-  }
-  
-  /* Botón "Volver" */
-  .back-button {
-    margin-top: 2rem;
-    padding: 0.75rem 1.5rem;
-    font-size: 1rem;
-    color: #fff;
-    background-color: #4a90e2;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .back-button:hover {
-    background-color: #357ab8;
-  }
-  
+  height: 100%;
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  background-color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+/* Contenedor principal */
+.patient-wrapper {
+  width: 100vw; /* Asegurar que ocupa todo el ancho */
+  height: 100vh; /* Asegurar que ocupa toda la altura */
+  display: flex;
+  flex-direction: column; /* Organiza los elementos en columna */
+  align-items: center;
+  justify-content: center;
+  background-color: black;
+}
+
+/* Contenedor del formulario */
+.patient-container {
+  display: flex;
+  width: 800px;
+  background: #141423;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Sección izquierda con el formulario */
+.patient-left {
+  width: 50%;
+  padding: 2rem;
+  color: white;
+}
+
+.patient-left h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+.patient-left form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Inputs y textarea */
+.patient-left input,
+.patient-left textarea {
+  padding: 0.8rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 4px;
+  outline: none;
+  background: #252540;
+  color: white;
+  width: 100%;
+}
+
+.patient-left input:focus,
+.patient-left textarea:focus {
+  border: 1px solid #4a90e2;
+}
+
+/* Botón de crear/actualizar */
+.patient-left button {
+  padding: 0.8rem;
+  font-size: 1rem;
+  color: white;
+  background-color: #4a90e2;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.patient-left button:hover {
+  background-color: #357ab8;
+}
+
+/* Sección derecha con animación */
+.patient-right {
+  width: 50%;
+  background: linear-gradient(135deg, #4b0082, #8a2be2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.patient-bg {
+  width: 100%;
+  height: 100%;
+  background: url('https://source.unsplash.com/random/600x600?medical,hospital') no-repeat center center/cover;
+  opacity: 0.5;
+}
+
+/* Botón para volver */
+.back-button {
+  margin-top: 1rem;
+  padding: 0.75rem 2rem;
+  font-size: 1rem;
+  color: white;
+  background-color: #e74c3c;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  text-align: center;
+}
+
+.back-button:hover {
+  background-color: #c0392b;
+}
