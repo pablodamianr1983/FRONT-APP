@@ -19,7 +19,7 @@ api.interceptors.request.use(
   (config) => {
     const token = localStorage.getItem("token");
     if (token) {
-      config.headers["Authorization"] = Bearer ${token}; // ⬅️ Corrección: Usa "Authorization" estándar
+      config.headers["Authorization"] = `Bearer ${token}`; // ⬅️ Corrección: Usa "Authorization" estándar
     }
     return config;
   },
