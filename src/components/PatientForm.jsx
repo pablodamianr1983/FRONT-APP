@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react'; 
 import { useNavigate, useParams } from 'react-router-dom';
 import api from '../services/api';
 import './PatientForm.css'; // Importa el archivo CSS
@@ -24,8 +24,9 @@ const PatientForm = () => {
         try {
           const res = await api.get(`/patients/${id}`);
           setPatient(res.data);
+          console.log("✅ Datos del paciente cargados correctamente:", res.data);
         } catch (err) {
-          console.error('Error al obtener el paciente', err);
+          console.error("❌ Error al obtener el paciente", err);
         }
       };
       fetchPatient();
@@ -41,12 +42,14 @@ const PatientForm = () => {
     try {
       if (id) {
         await api.put(`/patients/${id}`, patient);
+        console.log("✅ Paciente actualizado correctamente.");
       } else {
         await api.post('/patients', patient);
+        console.log("✅ Paciente creado correctamente.");
       }
-      navigate('/dashboard');
+      navigate('/dashboard'); // ✅ Redirigir al dashboard después de crear o actualizar
     } catch (err) {
-      console.error('Error al guardar el paciente', err);
+      console.error("❌ Error al guardar el paciente", err);
     }
   };
 
