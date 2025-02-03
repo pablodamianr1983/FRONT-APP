@@ -56,6 +56,7 @@ const PatientForm = () => {
   return (
     <div className="patient-wrapper">
       <div className="patient-container">
+        {/* Sección izquierda con el formulario */}
         <div className="patient-left">
           <h2>{id ? 'Editar Paciente' : 'Crear Paciente'}</h2>
           <form onSubmit={handleSubmit}>
@@ -71,12 +72,15 @@ const PatientForm = () => {
             <button type="submit">{id ? 'Actualizar' : 'Crear'}</button>
           </form>
         </div>
+
+        {/* Sección derecha con imagen y título */}
         <div className="patient-right">
           <div className="patient-bg">
             <h1 className="app-title">DiagnosTO</h1>
           </div>
         </div>
       </div>
+
       <button className="back-button" onClick={() => navigate('/dashboard')}>
         Volver
       </button>
