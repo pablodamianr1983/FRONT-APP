@@ -81,6 +81,7 @@ const PatientForm = () => {
         </div>
       </div>
 
+      {/* Botón de Volver colocado debajo del cuadro */}
       <button className="back-button" onClick={() => navigate('/dashboard')}>
         Volver
       </button>
