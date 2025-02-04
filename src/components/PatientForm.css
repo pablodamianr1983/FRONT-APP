@@ -1,4 +1,4 @@
-/* Reset global para evitar márgenes y paddings predeterminados */
+/* Reset global */
 *,
 *::before,
 *::after {
@@ -7,28 +7,48 @@
   padding: 0;
 }
 
-/* Asegurar que html y body permitan desplazamiento */
+/* HTML y BODY configurados con scroll moderno */
 html, body {
   width: 100%;
   min-height: 100%;
   background-color: black;
   color: white;
   font-family: 'Roboto', sans-serif;
-  overflow-x: hidden; /* Evitar scroll horizontal */
+  overflow-x: hidden; /* Evita desplazamiento horizontal */
   overflow-y: auto; /* Permitir desplazamiento vertical */
 }
 
-/* Contenedor principal que se expande según el contenido */
+/* Personalización de barras de desplazamiento */
+::-webkit-scrollbar {
+  width: 12px; /* Ancho de la barra */
+}
+
+::-webkit-scrollbar-track {
+  background: #1a1a2e; /* Color del fondo de la barra */
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #4a90e2; /* Color de la barra de desplazamiento */
+  border-radius: 6px;
+  border: 3px solid #1a1a2e; /* Espaciado interno para diseño más limpio */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #357ab8; /* Cambio de color al pasar el mouse */
+}
+
+/* Contenedor principal que permite desplazamiento */
 .patient-wrapper {
   width: 100vw;
-  min-height: 100vh; /* Mínimo toda la altura, pero permite expansión */
+  min-height: 100vh; /* Permite expansión */
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start; /* Comienza desde arriba para permitir scroll */
+  justify-content: flex-start;
   background-color: black;
   padding: 1rem;
-  overflow-y: auto; /* Agregar desplazamiento vertical si es necesario */
+  overflow-y: auto; /* Permitir scroll vertical */
 }
 
 /* Contenedor del formulario */
@@ -41,7 +61,7 @@ html, body {
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
   width: 100%;
   max-width: 800px;
-  margin-bottom: 1rem; /* Espacio para el botón de volver */
+  margin-bottom: 1rem;
 }
 
 /* Secciones flexibles */
