@@ -1,22 +1,21 @@
-/* Fondo negro en toda la pantalla */
-html, body {
-  height: 100%;
-  width: 100%;
-  margin: 0;
-  padding: 0;
-  font-family: 'Roboto', sans-serif;
-  background: black;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  overflow: hidden;
-}
-
+/* Reset CSS */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+/* Fondo negro en toda la pantalla */
+html, body {
+  height: 100%;
+  width: 100%;
+  background: black;
+  color: white;
+  font-family: 'Roboto', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
 }
 
 /* Contenedor principal */
@@ -33,8 +32,8 @@ html, body {
 /* Contenedor del login */
 .login-container {
   display: flex;
-  width: 800px;
-  max-width: 90%;
+  max-width: 800px;
+  width: 90%;
   background: #141423;
   border-radius: 12px;
   overflow: hidden;
@@ -163,7 +162,6 @@ html, body {
 }
 
 /* Responsive Design */
-
 @media (max-width: 768px) {
   .login-container {
     flex-direction: column;
