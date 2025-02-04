@@ -22,7 +22,7 @@ const Login = () => {
   };
 
   return (
-    <div className="login-wrapper" style={{ width: '100vw', height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', backgroundColor: 'black' }}>
+    <div className="login-wrapper">
       <div className="login-container">
         <div className="login-left">
           <h2>Iniciar Sesión</h2>
@@ -52,10 +52,10 @@ const Login = () => {
           </form>
         </div>
         <div className="login-right">
-          <div className="login-bg" style={{ position: 'relative', width: '100%', height: '100%' }}>
-            <h1 className="app-title" style={{ position: 'absolute', top: '40%', left: '50%', transform: 'translate(-50%, -50%)', color: 'white', fontSize: '3rem', fontWeight: 'bold', textShadow: '2px 2px 8px rgba(0, 0, 0, 0.7)' }}>DiagnosTO</h1>
-            <h1 className="app-title" style={{ position: 'absolute', top: '50%', left: '85%', transform: 'translate(-50%, -50%)', color: 'white', fontSize: '8rem', fontWeight: 'bold', textShadow: '2px 2px 8px rgba(0, 0, 0, 0.7)', opacity: '0.2', whiteSpace: 'nowrap' }}>DiagnosTO</h1>
-            <h1 className="app-title" style={{ position: 'absolute', top: '-10%', left: '10%', transform: 'translate(-50%, -50%)', color: 'white', fontSize: '8rem', fontWeight: 'bold', textShadow: '2px 2px 8px rgba(0, 0, 0, 0.7)', opacity: '0.2', whiteSpace: 'nowrap' }}>DiagnosTO</h1>
+          <div className="login-bg">
+            <h1 className="app-title main-title">DiagnosTO</h1>
+            <h1 className="app-title overlay-title-1">DiagnosTO</h1>
+            <h1 className="app-title overlay-title-2">DiagnosTO</h1>
           </div>
         </div>
       </div>
