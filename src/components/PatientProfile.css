@@ -18,14 +18,14 @@ html, body {
   align-items: center;
   justify-content: center;
   background-color: black;
-  padding: 1rem; /* Para evitar que en móviles el contenido toque el borde */
+  padding: 1rem; /* Para evitar que el contenido toque directamente los bordes en móviles */
 }
 
 /* Contenedor del perfil del paciente */
 .patient-profile-container {
   display: flex;
   width: 70%;
-  min-width: 900px;
+  /* Eliminamos el min-width fijo para hacerlo más flexible */
   background: linear-gradient(135deg, #141423, #3a3a62);
   padding: 2rem;
   border-radius: 12px;
@@ -107,7 +107,6 @@ html, body {
 @media (max-width: 1024px) {
   .patient-profile-container {
     width: 90%;
-    min-width: auto;
   }
 }
 
@@ -144,5 +143,10 @@ html, body {
   }
   .qr-container h3 {
     font-size: 1rem;
+  }
+  /* Ajustamos la imagen para que se vea mejor en pantallas pequeñas */
+  .patient-profile-image {
+    width: 100px;
+    height: 100px;
   }
 }
