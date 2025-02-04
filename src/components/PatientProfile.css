@@ -1,119 +1,148 @@
-/* Fondo negro en toda la pantalla */
+/* Estilos globales para fondo y tipografía */
 html, body {
-  height: 100%;
   margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
   font-family: 'Roboto', sans-serif;
   background-color: black;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   color: white;
 }
 
-/* Contenedor principal */
-.patient-wrapper {
-  width: 100vw; /* Asegurar que ocupa todo el ancho */
-  height: 100vh; /* Asegurar que ocupa toda la altura */
+/* Contenedor principal que abarca toda la pantalla */
+.patient-profile-wrapper {
+  width: 100vw;
+  height: 100vh;
   display: flex;
-  flex-direction: column; /* Organiza los elementos en columna */
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   background-color: black;
+  padding: 1rem; /* Para evitar que en móviles el contenido toque el borde */
 }
 
-/* Contenedor del formulario */
-.patient-container {
+/* Contenedor del perfil del paciente */
+.patient-profile-container {
   display: flex;
-  width: 800px;
-  background: #141423;
+  width: 70%;
+  min-width: 900px;
+  background: linear-gradient(135deg, #141423, #3a3a62);
+  padding: 2rem;
   border-radius: 12px;
-  overflow: hidden;
   box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.3);
+  margin-bottom: 1.5rem;
 }
 
-/* Sección izquierda con el formulario */
-.patient-left {
+/* Sección izquierda: información del paciente */
+.patient-profile-left {
   width: 50%;
-  padding: 2rem;
+  padding: 1rem;
   color: white;
 }
 
-.patient-left h2 {
+.patient-profile-left h2 {
   font-size: 1.8rem;
   margin-bottom: 1rem;
 }
 
-.patient-left form {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
+.patient-profile-left p {
+  margin: 0.5rem 0;
 }
 
-/* Inputs y textarea */
-.patient-left input,
-.patient-left textarea {
-  padding: 0.8rem;
-  font-size: 1rem;
-  border: none;
-  border-radius: 4px;
-  outline: none;
-  background: #252540;
-  color: white;
-  width: 100%;
+.patient-profile-image {
+  border-radius: 50%;
+  border: 3px solid #4a90e2;
+  width: 120px;
+  height: 120px;
+  margin-bottom: 1rem;
 }
 
-.patient-left input:focus,
-.patient-left textarea:focus {
-  border: 1px solid #4a90e2;
-}
-
-/* Botón de crear/actualizar */
-.patient-left button {
-  padding: 0.8rem;
-  font-size: 1rem;
-  color: white;
-  background-color: #4a90e2;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.patient-left button:hover {
-  background-color: #357ab8;
-}
-
-/* Sección derecha con animación */
-.patient-right {
+/* Sección derecha: código QR */
+.patient-profile-right {
   width: 50%;
   background: linear-gradient(135deg, #4b0082, #8a2be2);
   display: flex;
   justify-content: center;
   align-items: center;
-  position: relative;
+  border-radius: 12px;
+  padding: 1rem;
 }
 
-.patient-bg {
-  width: 100%;
-  height: 100%;
-  background: url('https://source.unsplash.com/random/600x600?medical,hospital') no-repeat center center/cover;
-  opacity: 0.5;
+.qr-container {
+  text-align: center;
+}
+
+.qr-container h3 {
+  color: white;
+  margin-bottom: 0.5rem;
 }
 
 /* Botón para volver */
 .back-button {
-  margin-top: 1rem;
-  padding: 0.75rem 2rem;
+  padding: 0.75rem 1.5rem;
   font-size: 1rem;
   color: white;
-  background-color: #e74c3c;
+  background-color: #4a90e2;
   border: none;
   border-radius: 6px;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  text-align: center;
 }
 
 .back-button:hover {
-  background-color: #c0392b;
+  background-color: #357ab8;
+}
+
+/* Estilo para el mensaje de carga */
+.loading {
+  color: white;
+  font-size: 1.5rem;
+  text-align: center;
+  margin-top: 2rem;
+}
+
+/* Media Queries para Responsividad */
+
+/* Para pantallas medianas (tabletas y notebooks) */
+@media (max-width: 1024px) {
+  .patient-profile-container {
+    width: 90%;
+    min-width: auto;
+  }
+}
+
+/* Para pantallas pequeñas (tabletas y móviles en horizontal) */
+@media (max-width: 768px) {
+  .patient-profile-container {
+    flex-direction: column;
+    width: 90%;
+    padding: 1.5rem;
+  }
+  .patient-profile-left,
+  .patient-profile-right {
+    width: 100%;
+  }
+  .patient-profile-left {
+    text-align: center;
+  }
+  .patient-profile-right {
+    margin-top: 1rem;
+  }
+}
+
+/* Para dispositivos móviles pequeños */
+@media (max-width: 480px) {
+  .patient-profile-left h2 {
+    font-size: 1.5rem;
+  }
+  .patient-profile-left p {
+    font-size: 0.9rem;
+  }
+  .back-button {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+  .qr-container h3 {
+    font-size: 1rem;
+  }
 }
