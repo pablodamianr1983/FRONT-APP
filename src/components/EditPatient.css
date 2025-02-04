@@ -1,92 +1,158 @@
-/* EditPatient.css */
+/* Reset global */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
 /* Contenedor principal */
 .edit-patient {
-    width: 100%;
-    max-width: 600px;
-    margin: 3rem auto;
-    background: #fff;
-    border-radius: 8px;
-    padding: 2rem;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    font-family: 'Roboto', sans-serif;
+  width: 90%; /* Se adapta a cualquier ancho de pantalla */
+  max-width: 600px;
+  margin: 3rem auto;
+  background: #1a1a2e; /* Cambia a un tono oscuro para un diseño más moderno */
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  font-family: 'Roboto', sans-serif;
+  color: white;
+}
+
+/* Título */
+.edit-patient h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-size: 2rem;
+  color: #4a90e2;
+}
+
+/* Estilos para el formulario */
+.edit-patient form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Etiquetas y inputs */
+.edit-patient label {
+  display: flex;
+  flex-direction: column;
+  font-size: 1rem;
+  color: #ddd;
+}
+
+.edit-patient input,
+.edit-patient textarea {
+  padding: 0.75rem;
+  font-size: 1rem;
+  border: 1px solid #4a90e2;
+  border-radius: 6px;
+  outline: none;
+  background: #252540;
+  color: white;
+  width: 100%;
+  transition: border-color 0.3s ease, background 0.3s ease;
+}
+
+.edit-patient input:focus,
+.edit-patient textarea:focus {
+  border-color: #66b3ff;
+  background: #2e2e4d;
+}
+
+/* Botones */
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1.5rem;
+}
+
+.buttons button {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.buttons button[type="submit"] {
+  background-color: #4a90e2;
+}
+
+.buttons button[type="submit"]:hover {
+  background-color: #357ab8;
+  transform: scale(1.05);
+}
+
+.buttons button[type="button"] {
+  background-color: #e74c3c;
+}
+
+.buttons button[type="button"]:hover {
+  background-color: #c0392b;
+  transform: scale(1.05);
+}
+
+/* Mensaje de error */
+.error {
+  color: #e74c3c;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* ==== 🔹 Estilos Responsivos 🔹 ==== */
+
+/* 📌 Para Tablets y Dispositivos Medianos */
+@media (max-width: 768px) {
+  .edit-patient {
+    width: 95%; /* Usa más espacio en pantallas pequeñas */
+    padding: 1.5rem; /* Reduce padding */
   }
-  
-  /* Título */
+
   .edit-patient h2 {
-    text-align: center;
-    margin-bottom: 1.5rem;
-    font-size: 2rem;
-    color: #2c3e50;
+    font-size: 1.8rem;
   }
-  
-  /* Estilos para el formulario */
-  .edit-patient form {
-    display: flex;
+
+  .buttons {
     flex-direction: column;
-    gap: 1rem;
+    gap: 1rem; /* Separa los botones cuando están apilados */
   }
-  
-  /* Etiquetas y inputs */
-  .edit-patient label {
-    display: flex;
-    flex-direction: column;
-    font-size: 1rem;
-    color: #333;
+
+  .buttons button {
+    width: 100%;
   }
-  
+}
+
+/* 📌 Para Celulares y Pantallas Pequeñas */
+@media (max-width: 480px) {
+  .edit-patient {
+    width: 100%; /* Ocupa toda la pantalla */
+    padding: 1rem;
+    margin: 2rem auto; /* Reduce margen para evitar demasiado espacio en la parte superior */
+  }
+
+  .edit-patient h2 {
+    font-size: 1.5rem;
+  }
+
   .edit-patient input,
   .edit-patient textarea {
-    padding: 0.75rem;
-    font-size: 1rem;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    outline: none;
-    transition: border-color 0.3s ease;
+    font-size: 0.9rem;
+    padding: 0.6rem;
   }
-  
-  .edit-patient input:focus,
-  .edit-patient textarea:focus {
-    border-color: #4a90e2;
-  }
-  
-  /* Botones */
+
   .buttons {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 1.5rem;
+    flex-direction: column;
+    gap: 0.75rem;
   }
-  
+
   .buttons button {
-    padding: 0.75rem 1.5rem;
-    font-size: 1rem;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+    font-size: 0.9rem;
+    padding: 0.6rem;
+    width: 100%;
   }
-  
-  .buttons button[type="submit"] {
-    background-color: #4a90e2;
-  }
-  
-  .buttons button[type="submit"]:hover {
-    background-color: #357ab8;
-  }
-  
-  .buttons button[type="button"] {
-    background-color: #e74c3c;
-  }
-  
-  .buttons button[type="button"]:hover {
-    background-color: #c0392b;
-  }
-  
-  /* Mensaje de error */
-  .error {
-    color: #e74c3c;
-    font-weight: bold;
-    text-align: center;
-  }
-  
+}
