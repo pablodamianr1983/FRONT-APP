@@ -1,4 +1,4 @@
-/* Fondo negro en toda la pantalla */
+/* Estilos Globales */
 html, body {
   height: 100%;
   margin: 0;
@@ -12,12 +12,13 @@ html, body {
 
 /* Contenedor principal */
 .patient-wrapper {
-  width: 100vw; /* Asegurar que ocupa todo el ancho */
-  height: 100vh; /* Asegurar que ocupa toda la altura */
+  width: 100vw;
+  height: 100vh;
   display: flex;
+  flex-direction: column; /* Para centrar el botón de volver debajo */
   align-items: center;
   justify-content: center;
-  background-color: black; /* Asegurar que el fondo es negro */
+  background-color: black;
 }
 
 /* Contenedor del formulario */
@@ -97,6 +98,14 @@ html, body {
   height: 100%;
   background: url('https://source.unsplash.com/random/600x600?medical,hospital') no-repeat center center/cover;
   opacity: 0.5;
+  position: relative;
+}
+
+.patient-bg .app-title {
+  position: absolute;
+  color: white;
+  font-size: 2rem;
+  font-weight: bold;
 }
 
 /* Botón para volver */
@@ -116,4 +125,52 @@ html, body {
 
 .back-button:hover {
   background-color: #c0392b;
+}
+
+/* ===== Media Queries para diseño responsive ===== */
+
+/* Para tablets y dispositivos de pantalla mediana */
+@media (max-width: 768px) {
+  .patient-container {
+    flex-direction: column;
+    width: 90%;
+    max-width: 500px;
+  }
+  
+  .patient-left, 
+  .patient-right {
+    width: 100%;
+  }
+  
+  .patient-right {
+    height: 200px; /* Ajusta la altura de la sección derecha */
+  }
+  
+  .patient-left {
+    padding: 1.5rem;
+  }
+}
+
+/* Para dispositivos móviles pequeños */
+@media (max-width: 480px) {
+  .patient-left {
+    padding: 1rem;
+  }
+  
+  .patient-left h2 {
+    font-size: 1.5rem;
+  }
+  
+  .patient-left input,
+  .patient-left textarea,
+  .patient-left button {
+    font-size: 0.9rem;
+    padding: 0.7rem;
+  }
+  
+  .back-button {
+    width: 90%;
+    padding: 0.75rem;
+    font-size: 0.9rem;
+  }
 }
