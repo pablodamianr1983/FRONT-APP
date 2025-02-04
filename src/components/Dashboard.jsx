@@ -25,7 +25,7 @@ const Dashboard = () => {
   };
 
   return (
-    <div className="dashboard-wrapper" style={{ background: 'linear-gradient(135deg, #1e1e2e, #3a3a62)', width: '100vw', height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+    <div className="dashboard-wrapper">
       <div className="dashboard-container">
         <h2>Panel de Administración</h2>
         <div className="dashboard-actions">
@@ -43,9 +43,9 @@ const Dashboard = () => {
           <tbody>
             {patients.map(patient => (
               <tr key={patient.id}>
-                <td>{patient.nombre}</td>
-                <td>{patient.apellido}</td>
-                <td className="action-links">
+                <td data-label="Nombre">{patient.nombre}</td>
+                <td data-label="Apellido">{patient.apellido}</td>
+                <td data-label="Acciones" className="action-links">
                   <Link to={`/patient/${patient.id}`}>Ver Perfil</Link>
                   {' | '}
                   <Link to={`/edit-patient/${patient.id}`}>Editar</Link>
