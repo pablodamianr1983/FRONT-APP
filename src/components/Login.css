@@ -1,7 +1,9 @@
 /* Fondo negro en toda la pantalla */
 html, body {
   height: 100%;
+  width: 100%;
   margin: 0;
+  padding: 0;
   font-family: 'Roboto', sans-serif;
   background: black;
   display: flex;
@@ -25,16 +27,19 @@ html, body {
   align-items: center;
   justify-content: center;
   background-color: black;
+  position: relative;
 }
 
 /* Contenedor del login */
 .login-container {
   display: flex;
   width: 800px;
+  max-width: 90%;
   background: #141423;
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.3);
+  position: relative;
 }
 
 /* Lado izquierdo del formulario */
