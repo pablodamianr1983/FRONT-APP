@@ -1,24 +1,23 @@
 /* Estilos Globales */
 html, body {
-  height: 100%;
+  min-height: 100%;
   margin: 0;
   font-family: 'Roboto', sans-serif;
   background-color: black;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   color: white;
+  overflow-y: auto; /* Permitir scroll vertical */
 }
 
 /* Contenedor principal */
 .patient-wrapper {
+  min-height: 100vh; /* Se expande si el contenido crece */
   width: 100vw;
-  height: 100vh;
   display: flex;
   flex-direction: column; /* Para centrar el botón de volver debajo */
   align-items: center;
   justify-content: center;
   background-color: black;
+  padding: 1rem; /* Espacio extra para que se vea bien al hacer scroll */
 }
 
 /* Contenedor del formulario */
