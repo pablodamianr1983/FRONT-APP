@@ -11,6 +11,10 @@ html, body {
   overflow: hidden;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 /* Contenedor principal */
 .login-wrapper {
   width: 100%;
@@ -115,7 +119,111 @@ html, body {
   opacity: 0.5;
 }
 
-/* Asegurar que no haya barras blancas */
-* {
-  box-sizing: border-box;
+/* Títulos decorativos */
+.app-title {
+  position: absolute;
+  color: white;
+  font-weight: bold;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+  white-space: nowrap;
+}
+
+.main-title {
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 3rem;
+}
+
+.overlay-title-1 {
+  top: 50%;
+  left: 85%;
+  transform: translate(-50%, -50%);
+  font-size: 8rem;
+  opacity: 0.2;
+}
+
+.overlay-title-2 {
+  top: -10%;
+  left: 10%;
+  transform: translate(-50%, -50%);
+  font-size: 8rem;
+  opacity: 0.2;
+}
+
+/* Responsive Design */
+
+@media (max-width: 768px) {
+  .login-container {
+    flex-direction: column;
+    width: 90%;
+  }
+
+  .login-left,
+  .login-right {
+    width: 100%;
+  }
+
+  .login-left {
+    padding: 1.5rem;
+  }
+
+  .login-left h2 {
+    font-size: 1.5rem;
+  }
+
+  .login-left input {
+    padding: 0.6rem;
+    font-size: 0.9rem;
+  }
+
+  .login-left button {
+    padding: 0.6rem;
+    font-size: 0.9rem;
+  }
+
+  .login-right {
+    height: 200px;
+  }
+
+  .main-title {
+    font-size: 2rem;
+  }
+
+  .overlay-title-1,
+  .overlay-title-2 {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .login-container {
+    width: 95%;
+  }
+
+  .login-left {
+    padding: 1rem;
+  }
+
+  .login-left h2 {
+    font-size: 1.3rem;
+  }
+
+  .login-left input {
+    padding: 0.5rem;
+    font-size: 0.8rem;
+  }
+
+  .login-left button {
+    padding: 0.5rem;
+    font-size: 0.8rem;
+  }
+
+  .login-right {
+    height: 150px;
+  }
+
+  .main-title {
+    font-size: 1.5rem;
+  }
 }
