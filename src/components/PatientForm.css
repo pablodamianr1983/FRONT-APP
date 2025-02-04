@@ -1,33 +1,46 @@
+/* Aplicar box-sizing a todos los elementos para facilitar el manejo de dimensiones */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 /* Estilos Globales */
 html, body {
-  min-height: 100%;
   margin: 0;
+  padding: 0;
+  width: 100%;
+  /* Permitir scroll en ambas direcciones si es necesario */
+  overflow-x: auto;
+  overflow-y: auto;
   font-family: 'Roboto', sans-serif;
   background-color: black;
   color: white;
-  overflow-y: auto; /* Permitir scroll vertical */
 }
 
 /* Contenedor principal */
 .patient-wrapper {
-  min-height: 100vh; /* Se expande si el contenido crece */
-  width: 100vw;
+  /* Se usa min-height para permitir expansión si el contenido es mayor */
+  min-height: 100vh;
+  width: 100%;
   display: flex;
-  flex-direction: column; /* Para centrar el botón de volver debajo */
+  flex-direction: column; /* Los elementos se apilan verticalmente */
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start; /* Comienza en la parte superior para facilitar el scroll vertical */
   background-color: black;
-  padding: 1rem; /* Espacio extra para que se vea bien al hacer scroll */
+  padding: 1rem; /* Espacio alrededor para evitar que el contenido quede pegado a los bordes */
 }
 
 /* Contenedor del formulario */
 .patient-container {
   display: flex;
-  width: 800px;
+  width: 100%;
+  max-width: 800px; /* Limita el ancho máximo para pantallas grandes */
   background: #141423;
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.3);
+  margin-bottom: 1rem; /* Espacio inferior para el botón de volver */
 }
 
 /* Sección izquierda con el formulario */
@@ -142,7 +155,7 @@ html, body {
   }
   
   .patient-right {
-    height: 200px; /* Ajusta la altura de la sección derecha */
+    height: 200px; /* Altura adecuada para la imagen de fondo */
   }
   
   .patient-left {
