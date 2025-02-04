@@ -1,4 +1,4 @@
-/* Reset global: Elimina cualquier margen o padding no deseado */
+/* Reset global para evitar márgenes y paddings predeterminados */
 *,
 *::before,
 *::after {
@@ -7,32 +7,31 @@
   padding: 0;
 }
 
-/* HTML y BODY deben ocupar el 100% del viewport sin márgenes */
+/* Asegurar que html y body permitan desplazamiento */
 html, body {
   width: 100%;
-  height: 100%;
+  min-height: 100%;
   background-color: black;
   color: white;
   font-family: 'Roboto', sans-serif;
-  overflow-x: hidden;  /* Evitar scroll horizontal */
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  overflow-x: hidden; /* Evitar scroll horizontal */
+  overflow-y: auto; /* Permitir desplazamiento vertical */
 }
 
-/* Contenedor principal (debe cubrir toda la pantalla) */
+/* Contenedor principal que se expande según el contenido */
 .patient-wrapper {
-  width: 100vw; /* Ocupa toda la anchura */
-  height: 100vh; /* Ocupa toda la altura */
+  width: 100vw;
+  min-height: 100vh; /* Mínimo toda la altura, pero permite expansión */
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  background-color: black; /* Asegurar fondo negro sin excepciones */
+  justify-content: flex-start; /* Comienza desde arriba para permitir scroll */
+  background-color: black;
   padding: 1rem;
+  overflow-y: auto; /* Agregar desplazamiento vertical si es necesario */
 }
 
-/* Contenedor del formulario (se adapta sin desbordar) */
+/* Contenedor del formulario */
 .patient-container {
   display: flex;
   flex-wrap: wrap;
@@ -42,16 +41,17 @@ html, body {
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
   width: 100%;
   max-width: 800px;
+  margin-bottom: 1rem; /* Espacio para el botón de volver */
 }
 
-/* Secciones flexibles para formulario e imagen */
+/* Secciones flexibles */
 .patient-left,
 .patient-right {
   flex: 1 1 300px;
   min-width: 300px;
 }
 
-/* Sección izquierda: formulario */
+/* Estilos de la sección izquierda */
 .patient-left {
   padding: 2rem;
 }
@@ -98,7 +98,7 @@ html, body {
   background-color: #357ab8;
 }
 
-/* Sección derecha: imagen de fondo y título */
+/* Sección derecha */
 .patient-right {
   position: relative;
   background: linear-gradient(135deg, #4b0082, #8a2be2);
@@ -109,7 +109,7 @@ html, body {
   width: 100%;
 }
 
-/* Imagen de fondo ocupando toda la sección */
+/* Imagen de fondo */
 .patient-bg {
   position: absolute;
   top: 0;
@@ -121,7 +121,7 @@ html, body {
   z-index: 1;
 }
 
-/* Título de la app posicionado sobre la imagen */
+/* Título */
 .patient-bg .app-title,
 .patient-right .app-title {
   position: relative;
@@ -131,11 +131,11 @@ html, body {
   font-weight: bold;
 }
 
-/* Botón para volver */
+/* Botón de volver */
 .back-button {
   display: block;
   width: max-content;
-  margin: 0.5rem auto 0;
+  margin: 1rem auto;
   padding: 0.75rem 2rem;
   font-size: 1rem;
   color: white;
@@ -150,7 +150,9 @@ html, body {
   background-color: #c0392b;
 }
 
-/* Media Queries para asegurar la adaptabilidad en tablets y móviles */
+/* ===== Media Queries ===== */
+
+/* Para tablets */
 @media (max-width: 768px) {
   .patient-left {
     padding: 1.5rem;
@@ -160,6 +162,7 @@ html, body {
   }
 }
 
+/* Para celulares */
 @media (max-width: 480px) {
   .patient-left {
     padding: 1rem;
