@@ -1,4 +1,4 @@
-/* Reset global para evitar problemas de espaciado */
+/* ===== Reset global para evitar problemas de espaciado ===== */
 *,
 *::before,
 *::after {
@@ -7,10 +7,10 @@
   padding: 0;
 }
 
-/* 🔹 Asegurar que body permite desplazamiento en todas las pantallas */
+/* ===== Estilos base para HTML y Body ===== */
 html, body {
   width: 100%;
-  min-height: 100vh; /* Permite expansión */
+  min-height: 100vh; /* Permite expansión vertical */
   background-color: black;
   color: white;
   font-family: 'Roboto', sans-serif;
@@ -18,10 +18,11 @@ html, body {
   overflow-y: auto; /* Permite desplazamiento vertical */
   display: flex;
   justify-content: center;
-  align-items: flex-start; /* Comenzar desde arriba para evitar cortes */
+  align-items: flex-start; /* Comienza desde arriba para evitar cortes */
+  padding: 1rem; /* Pequeño padding para evitar que el contenido toque los bordes en móviles */
 }
 
-/* 🔹 Contenedor principal */
+/* ===== Contenedor principal ===== */
 .edit-patient {
   width: 95%; /* Se adapta a cualquier tamaño de pantalla */
   max-width: 600px;
@@ -30,12 +31,11 @@ html, body {
   border-radius: 12px;
   padding: 2rem;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-  font-family: 'Roboto', sans-serif;
   color: white;
   overflow-y: auto; /* Garantiza scroll si el contenido es grande */
 }
 
-/* 🔹 Título */
+/* ===== Título ===== */
 .edit-patient h2 {
   text-align: center;
   margin-bottom: 1.5rem;
@@ -43,14 +43,14 @@ html, body {
   color: #4a90e2;
 }
 
-/* 🔹 Formulario */
+/* ===== Formulario ===== */
 .edit-patient form {
   display: flex;
   flex-direction: column;
   gap: 1rem;
 }
 
-/* 🔹 Etiquetas */
+/* ===== Etiquetas ===== */
 .edit-patient label {
   display: flex;
   flex-direction: column;
@@ -58,9 +58,11 @@ html, body {
   color: #ddd;
 }
 
-/* 🔹 Cuadros de texto y textarea totalmente adaptables */
+/* ===== Cuadros de texto y textarea adaptativos ===== */
 .edit-patient input,
 .edit-patient textarea {
+  width: 100%; /* Ocupan siempre el ancho completo del contenedor */
+  max-width: 100%; /* Evita desbordamientos */
   padding: 0.75rem;
   font-size: 1rem;
   border: 1px solid #4a90e2;
@@ -68,27 +70,25 @@ html, body {
   outline: none;
   background: #252540;
   color: white;
-  width: 100%; /* Se adapta siempre al ancho del contenedor */
-  max-width: 100%; /* Evita que se desborde en pantallas pequeñas */
   transition: border-color 0.3s ease, background 0.3s ease;
 }
 
-/* 🔹 Ajustes específicos para textarea */
+/* ===== Ajustes específicos para textarea ===== */
 .edit-patient textarea {
-  resize: vertical; /* Permite redimensionar solo hacia arriba/abajo */
-  min-height: 100px; /* Tamaño mínimo adecuado */
-  max-height: 300px; /* No se expande demasiado */
-  overflow-y: auto; /* Permite desplazamiento si hay mucho texto */
+  resize: vertical; /* Permite redimensionar solo verticalmente */
+  min-height: 100px; /* Altura mínima */
+  max-height: 300px; /* Altura máxima */
+  overflow-y: auto; /* Desplazamiento interno si es necesario */
 }
 
-/* 🔹 Efecto al enfocar */
+/* ===== Efecto al enfocar ===== */
 .edit-patient input:focus,
 .edit-patient textarea:focus {
   border-color: #66b3ff;
   background: #2e2e4d;
 }
 
-/* 🔹 Botones */
+/* ===== Botones ===== */
 .buttons {
   display: flex;
   justify-content: space-between;
@@ -123,19 +123,19 @@ html, body {
   transform: scale(1.05);
 }
 
-/* 🔹 Mensaje de error */
+/* ===== Mensaje de error ===== */
 .error {
   color: #e74c3c;
   font-weight: bold;
   text-align: center;
 }
 
-/* ===== 🔹 Estilos Responsivos 🔹 ===== */
+/* ===== Estilos Responsivos ===== */
 
-/* 📌 Para Tablets */
+/* ---- Para Tablets (max-width: 768px) ---- */
 @media (max-width: 768px) {
   .edit-patient {
-    width: 90%; /* Se expande más en pantallas medianas */
+    width: 90%;
     padding: 1.5rem;
   }
 
@@ -159,10 +159,10 @@ html, body {
   }
 }
 
-/* 📌 Para Celulares */
+/* ---- Para Celulares (max-width: 480px) ---- */
 @media (max-width: 480px) {
   .edit-patient {
-    width: 100%; /* Ocupa toda la pantalla */
+    width: 100%;
     padding: 1rem;
     margin: 2rem auto;
   }
@@ -188,7 +188,7 @@ html, body {
     width: 100%;
   }
 
-  /* Ajustar textarea en móviles */
+  /* Ajustes específicos para textarea en móviles */
   .edit-patient textarea {
     min-height: 80px;
     max-height: 250px;
