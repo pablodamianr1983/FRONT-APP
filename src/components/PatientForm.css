@@ -1,4 +1,4 @@
-/* Aplicar box-sizing a todos los elementos para facilitar el manejo de dimensiones */
+/* Aplicar box-sizing globalmente */
 *,
 *::before,
 *::after {
@@ -9,43 +9,41 @@
 html, body {
   margin: 0;
   padding: 0;
-  width: 100%;
-  /* Permitir scroll en ambas direcciones si es necesario */
-  overflow-x: auto;
-  overflow-y: auto;
-  font-family: 'Roboto', sans-serif;
   background-color: black;
   color: white;
-}
-
-/* Contenedor principal */
-.patient-wrapper {
-  /* Se usa min-height para permitir expansión si el contenido es mayor */
-  min-height: 100vh;
+  font-family: 'Roboto', sans-serif;
   width: 100%;
-  display: flex;
-  flex-direction: column; /* Los elementos se apilan verticalmente */
-  align-items: center;
-  justify-content: flex-start; /* Comienza en la parte superior para facilitar el scroll vertical */
-  background-color: black;
-  padding: 1rem; /* Espacio alrededor para evitar que el contenido quede pegado a los bordes */
+  min-height: 100%;
 }
 
-/* Contenedor del formulario */
+/* Contenedor principal centrado con margen */
+.patient-wrapper {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+/* Contenedor del formulario con flex-wrap para acomodar contenido */
 .patient-container {
   display: flex;
-  width: 100%;
-  max-width: 800px; /* Limita el ancho máximo para pantallas grandes */
+  flex-wrap: wrap;
   background: #141423;
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.3);
-  margin-bottom: 1rem; /* Espacio inferior para el botón de volver */
+  margin: 1rem auto;
 }
 
-/* Sección izquierda con el formulario */
+/* Secciones flexibles para formulario e imagen */
+.patient-left,
+.patient-right {
+  flex: 1 1 300px; /* Permite crecer y encogerse con un ancho base de 300px */
+  min-width: 300px;
+}
+
+/* Sección izquierda: formulario */
 .patient-left {
-  width: 50%;
   padding: 2rem;
   color: white;
 }
@@ -95,36 +93,44 @@ html, body {
   background-color: #357ab8;
 }
 
-/* Sección derecha con animación */
+/* Sección derecha: imagen de fondo y título */
 .patient-right {
-  width: 50%;
+  position: relative;
   background: linear-gradient(135deg, #4b0082, #8a2be2);
   display: flex;
-  justify-content: center;
   align-items: center;
-  position: relative;
+  justify-content: center;
+  /* Se establece una altura mínima para que la imagen se vea bien */
+  min-height: 300px;
 }
 
+/* Imagen de fondo ocupando toda la sección */
 .patient-bg {
-  width: 100%;
-  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   background: url('https://source.unsplash.com/random/600x600?medical,hospital') no-repeat center center/cover;
   opacity: 0.5;
-  position: relative;
+  z-index: 1;
 }
 
-.patient-bg .app-title {
-  position: absolute;
+/* Título de la app posicionado sobre la imagen */
+.patient-bg .app-title,
+.patient-right .app-title {
+  position: relative;
+  z-index: 2;
   color: white;
   font-size: 2rem;
   font-weight: bold;
 }
 
-/* Botón para volver */
+/* Botón para volver debajo del contenedor principal */
 .back-button {
-  margin-top: 1rem;
   display: block;
-  align-self: center;
+  width: max-content;
+  margin: 0.5rem auto 0;
   padding: 0.75rem 2rem;
   font-size: 1rem;
   color: white;
@@ -143,23 +149,11 @@ html, body {
 
 /* Para tablets y dispositivos de pantalla mediana */
 @media (max-width: 768px) {
-  .patient-container {
-    flex-direction: column;
-    width: 90%;
-    max-width: 500px;
-  }
-  
-  .patient-left, 
-  .patient-right {
-    width: 100%;
-  }
-  
-  .patient-right {
-    height: 200px; /* Altura adecuada para la imagen de fondo */
-  }
-  
   .patient-left {
     padding: 1.5rem;
+  }
+  .patient-right {
+    min-height: 200px;
   }
 }
 
@@ -168,20 +162,16 @@ html, body {
   .patient-left {
     padding: 1rem;
   }
-  
   .patient-left h2 {
     font-size: 1.5rem;
   }
-  
   .patient-left input,
   .patient-left textarea,
   .patient-left button {
     font-size: 0.9rem;
     padding: 0.7rem;
   }
-  
   .back-button {
-    width: 90%;
     padding: 0.75rem;
     font-size: 0.9rem;
   }
